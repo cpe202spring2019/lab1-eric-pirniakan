@@ -55,7 +55,7 @@ class TestLab1(unittest.TestCase):
         size2_list = [8, 24]
         self.assertEqual(reverse_rec(size2_list), [24, 8])
 
-    def test_reverse_rec_empty(self):
+    def test_reverse_rec_empty(self): #tests reverse rec with an empty list
         empty_list = []
         self.assertEqual(reverse_rec(empty_list), None)
             
