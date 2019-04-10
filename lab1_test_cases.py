@@ -46,6 +46,18 @@ class TestLab1(unittest.TestCase):
         tlist = None
         with self.assertRaises(ValueError):  # used to check for exception
             reverse_rec(tlist)
+
+    def test_reverse_rec_size1(self): #tests reverse rec with a list of size 1
+        size1_list = [8]
+        self.assertEqual(reverse_rec(size1_list), [8])
+
+    def test_reverse_rec_size2(self): #tests reverse rec with a list of size 2
+        size2_list = [8, 24]
+        self.assertEqual(reverse_rec(size2_list), [24, 8])
+
+    def test_reverse_rec_empty(self):
+        empty_list = []
+        self.assertEqual(reverse_rec(empty_list), None)
             
     def test_reverse_rec_all_same(self): #tests reversing the list when every single element is the same integer
         self.assertEqual(reverse_rec([9, 9, 9, 9, 9, 9, 9, 9]), [9, 9, 9, 9, 9, 9, 9, 9])
@@ -96,7 +108,13 @@ class TestLab1(unittest.TestCase):
         low = 0
         high = len(list_val)-1
         self.assertEqual(bin_search(60, 0, len(list_val)-1, list_val), 5)
-        
+    
+    def test_bin_search_with_different_low_and_high(self): #tests binary search with a low greater than 0 and high less than the length of the list minus 1
+        list_val = [2, 3, 8, 23, 24, 32, 33]
+        low = 2
+        high = len(list_val)-2 
+        self.assertEqual(bin_search(23, 2, len(list_val)-2, list_val), 3)
+    
 if __name__ == "__main__":
         unittest.main()
 
